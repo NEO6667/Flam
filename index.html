@@ -3,9 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Interactive Bezier Curve</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Interactive Bezier Curve with Physics</h1>
+        <p class="subtitle">Move your mouse to interact with the springy Bezier curve. Visualizing tangents and control point physics.</p>
+        
+        <div class="canvas-container">
+            <canvas id="bezierCanvas"></canvas>
+            <div class="fps-counter">FPS: <span id="fps">60</span></div>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <h2>Physics Parameters</h2>
+                <div class="slider-container">
+                    <label for="springConstant">Spring Constant (k):</label>
+                    <input type="range" id="springConstant" min="0.01" max="0.5" step="0.01" value="0.1">
+                    <span id="springValue">0.10</span>
+                </div>
+                
+                <div class="slider-container">
+                    <label for="damping">Damping Factor:</label>
+                    <input type="range" id="damping" min="0.85" max="0.99" step="0.01" value="0.92">
+                    <span id="dampingValue">0.92</span>
+                </div>
+                
+                <div class="slider-container">
+                    <label for="mouseInfluence">Mouse Influence:</label>
+                    <input type="range" id="mouseInfluence" min="0.1" max="2" step="0.1" value="1.0">
+                    <span id="influenceValue">1.0</span>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <h2>Visualization</h2>
+                <div class="toggle-container">
+                    <button id="toggleTangents" class="toggle-btn active">Show Tangents</button>
+                    <button id="toggleControlLines" class="toggle-btn active">Show Control Lines</button>
+                    <button id="togglePoints" class="toggle-btn active">Show Control Points</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-panel">
+            <div class="info-box">
+                <h3>Bezier Curve Math</h3>
+                <p><strong>Cubic Bezier Formula:</strong><br>
+                B(t) = (1-t)³P₀ + 3(1-t)²tP₁ + 3(1-t)t²P₂ + t³P₃</p>
+                <p><strong>Tangent Formula:</strong><br>
+                B'(t) = 3(1-t)²(P₁-P₀) + 6(1-t)t(P₂-P₁) + 3t²(P₃-P₂)</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>Physics Model</h3>
+                <p><strong>Spring-Damping System:</strong><br>
+                acceleration = -k × (position - target) - damping × velocity</p>
+                <p>P₀ and P₃ are fixed endpoints<br>
+                P₁ and P₂ follow mouse with spring physics</p>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h2>How to Interact</h2>
+            <ul>
+                <li><strong>Move your mouse</strong> over the canvas to influence control points P₁ and P₂.</li>
+                <li><strong>Adjust the sliders</strong> to change spring physics behavior.</li>
+                <li><strong>Toggle buttons</strong> to show/hide visual elements.</li>
+                <li>The curve shows <strong>tangent vectors</strong> at multiple points (blue lines).</li>
+                <li>Control points have <strong>spring physics</strong> for natural motion.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
