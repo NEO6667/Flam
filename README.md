@@ -64,18 +64,6 @@ The curve responds to mouse input, visualizes tangents, and applies real-time sp
 
 ---
 
-  
-
-## 🎥 Demo Video
-
-  
-
-> 📌 *Upload a short demo video or GIF showing interaction.*
-
-  
-
-### YouTube / Drive Link
-
 ## 🎥 Demo Video
 
 ▶️ [Click here to watch the demo video](public/demo.mp4)
