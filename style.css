@@ -93,7 +93,6 @@ h2 {
 input[type="range"] {
     flex: 1;
     height: 8px;
-    -webkit-appearance: none;
     background: #1a1a2e;
     border-radius: 4px;
     outline: none;
